@@ -1,0 +1,59 @@
+
+#   a214_simple_window1.py
+#   A program creates a window on your screen using Tkinter.
+import tkinter as tk
+
+
+# secondary window
+def test_my_button():
+    frame_auth.tkraise()
+    # step 22...?
+# make a frame auth
+
+# main window
+root = tk.Tk()
+root.wm_geometry("200x300")
+
+# create empty frame
+frame_login = tk.Frame(root)
+frame_login.grid(column=0,row=0) # calls frame
+
+# secondary window...?
+frame_auth = tk.Frame(root)
+frame_auth.grid(column=0,row=0)
+
+# create label
+lbl_username = tk.Label(frame_login, text='Username:') # Set it to exist within frame_login and give it the display text “Username:” 
+lbl_username.grid(column=0,row=0) # Call the pack method of the widget to show it within the frame’s grid
+
+# add a label widget that exists in frame_login and has the text option (keyword arguments) set to “Password:”, and the font option set to “Courier.”
+lbl_password = tk.Label(frame_login,text="Password:", font="Helvetica")
+# I skipped step 13
+'''frame_login.pack(padx = 10, pady = 10)
+lbl_password.pack(padx = 10, pady = 10)'''
+
+lbl_password.grid(column=0,row=2)
+
+# make an entry field
+ent_username = tk.Entry(frame_login, bd=3)
+ent_username.grid(column = 0, row=1, pady=5)
+ent_password = tk.Entry(frame_login, bd=3, show = "*")
+ent_password.grid(column=0,row=3, pady=5)
+
+# add a login button
+btn = tk.Button(root, text = "Login", command = test_my_button)
+btn.grid(column=0,row=4, sticky="news")
+#btn.tkraise()
+#frame_login.tkraise()
+
+root.mainloop()
+
+'''
+#w = tk.Radiobutton(root, text = "Hello", underline = 0).pack()
+
+# Changing the title
+tk = root.title()
+root.title("Authorization")
+
+root.mainloop()'''
+#'''root2.mainloop()''' 
