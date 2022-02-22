@@ -1,4 +1,3 @@
-
 #   a214_simple_window1.py
 #   A program creates a window on your screen using Tkinter.
 import tkinter as tk
@@ -7,7 +6,7 @@ import tkinter as tk
 # secondary window
 def test_my_button():
     frame_auth.tkraise()
-    # step 22...?
+    print(value.get())
 # make a frame auth
 
 # main window
@@ -16,11 +15,11 @@ root.wm_geometry("200x300")
 
 # create empty frame
 frame_login = tk.Frame(root)
-frame_login.grid(column=0,row=0) # calls frame
+frame_login.grid(column=0,row=0,sticky="news") # calls frame
 
 # secondary window...?
 frame_auth = tk.Frame(root)
-frame_auth.grid(column=0,row=0)
+frame_auth.grid(column=0,row=0, sticky="news")
 
 # create label
 lbl_username = tk.Label(frame_login, text='Username:') # Set it to exist within frame_login and give it the display text “Username:” 
@@ -34,26 +33,36 @@ lbl_password.pack(padx = 10, pady = 10)'''
 
 lbl_password.grid(column=0,row=2)
 
+# use get method of ent_password when the button is pressed, and store result
+value = tk.StringVar()
+
 # make an entry field
 ent_username = tk.Entry(frame_login, bd=3)
 ent_username.grid(column = 0, row=1, pady=5)
-ent_password = tk.Entry(frame_login, bd=3, show = "*")
+ent_password = tk.Entry(frame_login, bd=3, show = "*", textvariable = value)
 ent_password.grid(column=0,row=3, pady=5)
 
 # add a login button
-btn = tk.Button(root, text = "Login", command = test_my_button)
+btn = tk.Button(frame_login, text = "Login", command = test_my_button)
 btn.grid(column=0,row=4, sticky="news")
 #btn.tkraise()
-#frame_login.tkraise()
+frame_login.tkraise()
+
+# windows branding
+frame_blue = tk.Frame(frame_auth)
+frame_blue.grid(column = 0, row = 0)
+frame_green = tk.Frame(frame_auth)
+frame_green.grid(column = 3, row = 0)
+frame_red = tk.Frame(frame_auth)
+frame_red.grid(column = 0, row = 2)
+frame_yellow = tk.Frame(frame_auth)
+frame_yellow.grid(column = 3, row = 2)
+
+# add a label to frame_auth
+lbl_something = tk.Label(frame_auth,text='Password:', font='Arial')
+
+
+
+
 
 root.mainloop()
-
-'''
-#w = tk.Radiobutton(root, text = "Hello", underline = 0).pack()
-
-# Changing the title
-tk = root.title()
-root.title("Authorization")
-
-root.mainloop()'''
-#'''root2.mainloop()''' 
